@@ -1,9 +1,12 @@
 package com.improvingLogic;
+
+import java.util.List;
+
 /**
  * Write an efficient program to find the sum of contiguous subarray within a one-dimensional 
  * array of numbers which has the largest sum.
  * 
- *  Kadane’s Algorithm:
+ *  Kadaneï¿½s Algorithm:
 
 	Initialize:
 	    max_so_far = 0
@@ -101,6 +104,20 @@ public class LargestSumContiguousSubarray {
 		System.out.println("endIndex : "+endIndex);
 		System.out.println("finalMax : "+finalMax);
 	}
+	
+	static int findSmallestSumContiguousSubarray(List<Integer> nums){
+		int currentMin = nums.get(0);
+		int minSoFar = nums.get(0);
+		
+		for(int i = 1; i < nums.size() ; ++i) {
+			currentMin = Math.min(nums.get(i) , currentMin + nums.get(i));
+	        minSoFar = Math.min(minSoFar, currentMin);
+		}
+		
+		return minSoFar;
+		
+	}
+
 	
 
 }
