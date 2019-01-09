@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 /**
  * Two strings are called anagrams if they contain same set of characters but in different order. For 
- * example, “Dormitory – Dirty Room”, “keep – peek”,  “School Master – The Classroom” are some anagrams.
+ * example, ï¿½Dormitory ï¿½ Dirty Roomï¿½, ï¿½keep ï¿½ peekï¿½,  ï¿½School Master ï¿½ The Classroomï¿½ are some anagrams.
 	
    Anagram Program In Java Using HashMap:
    --------------------------------------
@@ -76,7 +76,6 @@ public class AnagramOrNot {
 
 	private static boolean isAnagramHashMap(String sOne, String sTwo) {
 		String copyOfs1 = sOne.replaceAll("\\s", "").toLowerCase();
-		 
         String copyOfs2 = sTwo.replaceAll("\\s", "").toLowerCase();
         
         int sOneLength=copyOfs1.length();
@@ -85,8 +84,9 @@ public class AnagramOrNot {
         if(sOneLength != sTwoLength){
         	return false;
         }
-        HashMap<Character,Integer> hm= new HashMap<Character,Integer>(sOneLength+sTwoLength);
         
+        HashMap<Character,Integer> hm= new HashMap<Character,Integer>(sOneLength+sTwoLength);
+        boolean isAnagram = true;
         for (int i = 0; i < sOneLength; ++i) {
 			char cur=copyOfs1.charAt(i);
 			
@@ -105,17 +105,19 @@ public class AnagramOrNot {
 				hm.put(cur, hm.get(cur)-1);
 			}
 			else{
-				return false;
+				isAnagram = false;
+				break;
 			}
 		}
         
         for (int value : hm.values()){
             if(value != 0){
                 //If character count is not equal to 0, then setting status as false
-                return false;
+				isAnagram = false;
+                break;
             }
         }
-        return true;
+        return isAnagram;
 	}
 
 }

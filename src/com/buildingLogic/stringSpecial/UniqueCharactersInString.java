@@ -1,5 +1,7 @@
 package com.buildingLogic.stringSpecial;
 
+import java.util.Arrays;
+
 public class UniqueCharactersInString {
 	
 	public static String inputStr="durgadurgadurgadurga";
@@ -22,8 +24,30 @@ public class UniqueCharactersInString {
 			++index;
 		}//while(index < inputStrLen)
 		System.out.println("Final Unique String :"+finalStr);
+		
+		doesStringContainsUniqueCharacters(inputStr);
 	}//main()
 	
+	private static boolean doesStringContainsUniqueCharacters(String inputStr) {
+		int inputStrLen = inputStr.length();
+		if(inputStrLen == 0 || inputStrLen == 1) {
+			return true;
+		}
+		boolean isStringUnique = true;
+		char[] inputChar = inputStr.toCharArray();
+		Arrays.sort(inputChar);
+		
+		for (int i = 1; i < inputStrLen; ++i) {
+			if(inputChar[i] == inputChar[i-1]) {
+				isStringUnique = false;
+				break;
+			}
+		}
+		
+		return isStringUnique;
+		
+	}
+
 	static boolean formFinalStr(char ch){
 		int finalStrIndex=0;
 		int finalStrLen=finalStr.length();
@@ -50,5 +74,7 @@ public class UniqueCharactersInString {
 		
 		
 	}//formFinalStr(char ch)
+	
+	
 
 }//UniquesCharectersInString

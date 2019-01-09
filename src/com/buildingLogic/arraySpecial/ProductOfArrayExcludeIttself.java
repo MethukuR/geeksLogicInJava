@@ -54,12 +54,7 @@ public class ProductOfArrayExcludeIttself {
     }
 
 	public static void main(String[] args) {
-		List<Integer> ar = new ArrayList<>(){
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
+		List<Integer> ar = new ArrayList<Integer>(){
 			{
 				add(10);
 				add(3);

@@ -1,5 +1,8 @@
 package com.buildingLogic.arraySpecial;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
  
 /**
  * You have given an integer array and a number. You need to find the continuous sub array of the given 
@@ -49,6 +52,39 @@ class ContinuosSubArray {
 			}
 		}
 		System.out.println();
+	}
+	
+	static List<Integer> findSubArrayOptimized(int[] inputArray){
+		
+		int target = 0;
+		int curSum=0;
+		int start=0;
+		int end = -1;
+		
+		List<Integer> indices = new ArrayList<>();
+		
+		HashMap<Integer, Integer> sumMap = new HashMap<>();
+		for (int i = 0; i < inputArray.length; ++i) {
+			curSum = curSum + inputArray[i];
+			if(target == curSum) {
+				end = i;
+				indices.add(start) ;
+				indices.add(end);
+				break;
+			}
+			
+			if(sumMap.containsKey(curSum-target) && sumMap.get(curSum-target) != i) {
+				start = sumMap.get(curSum-target);
+				end = i;
+				indices.add(start) ;
+				indices.add(end);
+				break;
+			}
+			
+			sumMap.put(curSum, i);
+		}
+		
+		return indices;
 	}
  
 }

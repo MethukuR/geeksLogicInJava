@@ -5,7 +5,7 @@ package com.buildingLogic.numberSpecial;
  *  ------------------------------
 	The Fibonacci numbers are the numbers in the following integer sequence.
 	
-	0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ……..
+	0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ï¿½ï¿½..
 	
 	In mathematical terms, the sequence Fn of Fibonacci numbers is defined by the 
 	recurrence relation
@@ -18,7 +18,7 @@ package com.buildingLogic.numberSpecial;
     
     INTERESTING FACT :
     ------------------
-    A number is Fibonacci if and only if one or both of (5*(n^2) + 4) or (5*(n^2) – 4) 
+    A number is Fibonacci if and only if one or both of (5*(n^2) + 4) or (5*(n^2) ï¿½ 4) 
     is a perfect square .
  * 
  * @author Dangal Raju Rockzz :P
@@ -40,6 +40,9 @@ public class NthFibonacciNumber {
 		System.out.println("nthFibonacciNumberThree : "+nthFibonacciNumber);
 		
 		nthFibonacciNumber=findNthFibonacciNumberFour(n);
+		System.out.println("nthFibonacciNumberFour : "+nthFibonacciNumber);
+		
+		nthFibonacciNumber=fibOptimized(n);
 		System.out.println("nthFibonacciNumberFour : "+nthFibonacciNumber);
 		
 	}
@@ -134,6 +137,33 @@ public class NthFibonacciNumber {
 		else{
 			return findNthFibonacciNumberOne(n-1)+findNthFibonacciNumberOne(n-2);
 		}
+	}
+	
+	static int[] f =  new int[1000];
+	private static int fibOptimized(int n) {
+
+	 // Base cases 
+        if (n == 0) 
+            return 0; 
+              
+        if (n == 1 || n == 2) 
+            return (f[n] = 1); 
+       
+        // If fib(n) is already computed 
+        if (f[n] != 0) 
+            return f[n]; 
+       
+        int k = (n & 1) == 1? (n + 1) / 2 
+                            : n / 2; 
+       
+        // Applyting above formula [Note value 
+        // n&1 is 1 if n is odd, else 0. 
+        f[n] = (n & 1) == 1? (fibOptimized(k) * fibOptimized(k) +  
+        		fibOptimized(k - 1) * fibOptimized(k - 1)) 
+                       : (2 * fibOptimized(k - 1) + fibOptimized(k))  
+                       * fibOptimized(k); 
+       
+        return f[n]; 
 	}
 
 }

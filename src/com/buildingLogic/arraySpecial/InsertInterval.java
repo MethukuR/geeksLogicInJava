@@ -3,14 +3,14 @@ package com.buildingLogic.arraySpecial;
 import java.util.ArrayList;
 import java.util.List;
 
-//Definition of Interval:
+/*//Definition of Interval:
   class Interval {
       int start, end;
       Interval(int start, int end) {
           this.start = start;
           this.end = end;
       }
- }
+ }*/
  
 
 public class InsertInterval {

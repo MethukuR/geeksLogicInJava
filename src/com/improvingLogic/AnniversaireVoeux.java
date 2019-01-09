@@ -1,9 +1,7 @@
-/*package com.improvingLogic;
+package com.improvingLogic;
 
-
-
-import org.jfugue.Pattern;
-import org.jfugue.Player;
+import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
 
 public class AnniversaireVoeux {
 	public static void main(String[] args) {
@@ -205,4 +203,3 @@ public class AnniversaireVoeux {
 		
 	 }
 }
-*/
