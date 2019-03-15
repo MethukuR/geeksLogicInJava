@@ -19,12 +19,12 @@ public class BFSUsingList {
 		
 		List<Node> nodesAfterBfs = new ArrayList<>();
 		Queue<Node> bfsQueue = new LinkedList<>();
-		bfsQueue.add(node);
+		bfsQueue.offer(node);
 		node.setVisited(true);
 		node.setStartTime(++counter);
 
 		while (!bfsQueue.isEmpty()) {
-			Node element = bfsQueue.remove();
+			Node element = bfsQueue.poll();
 			element.setEndTime(++counter);
 			System.out.println("Element : "+element.getData() + " -> startTime: "+element.getStartTime() + "  -> endTime: "+element.getEndTime());
 			nodesAfterBfs.add(element);
@@ -32,7 +32,7 @@ public class BFSUsingList {
 			List<Node> neighbours = element.getNeighbours();
 			for (Node neighbour : neighbours) {
 				if (null != neighbour && !neighbour.isVisited()) {
-					bfsQueue.add(neighbour);
+					bfsQueue.offer(neighbour);
 					neighbour.setVisited(true);
 					neighbour.setStartTime(++counter);
 				}
@@ -40,6 +40,39 @@ public class BFSUsingList {
 		}
 		
 		return nodesAfterBfs;
+	}
+	
+	public static List<List<Integer>> bfsTree(Node root){
+		if(root == null) {
+			return null;
+		}
+		
+		List<List<Integer>> nodesAfterBfs = new ArrayList<List<Integer>>();
+		Queue<Node> q = new LinkedList<Node>();
+		q.offer(root);
+		
+		while(!q.isEmpty()) {
+			int size = q.size();
+			Node cur = q.poll();
+			
+			List<Integer> curRow = new ArrayList<>();
+			while(size > 0) {
+				--size;
+				curRow.add(cur.getData());
+				if(cur.left != null) {
+					q.offer(cur.left);
+				}
+				
+				if(cur.right != null) {
+					q.offer(cur.right);
+				}
+			}
+			
+			nodesAfterBfs.add(curRow);
+			
+		}
+		return nodesAfterBfs;
+		
 	}
 
 	public static void main(String arg[]) {

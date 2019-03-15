@@ -53,10 +53,12 @@ class TNode{
 public class BSTOperations {
 	TNode root = null;
 	HashMap<Integer,List<Integer>> mapVerticalDistance =null;
+	
 	private void insert(int data){
 		root=insertData(root,data);
 	}
 	
+	//recursive approach
 	private TNode insertData(TNode root, int data){
 		if(root == null){
 			root= new TNode(data);
@@ -74,6 +76,40 @@ public class BSTOperations {
 		}
 		return root;
 	}
+	
+	//iterative
+	public TNode insertNode(TNode root, TNode node) {
+		if(root == null) {
+			return node;
+		}
+		
+		if(node == null) {
+			return root;
+		}
+		
+		TNode cur = root;
+		TNode parent = null;
+		
+		while(cur != null) {
+			parent = cur;
+			
+			if(cur.getData() > node.getData()) {
+				cur = cur.getLeft();
+			}else {
+				cur = cur.getRight();
+			}
+		}
+		
+		if(parent != null) {
+			if(parent.getData() > node.getData()) {
+				parent.setLeft(node);
+			}else {
+				parent.setRight(node);
+			}
+		}
+		return root;
+    }
+	
 	private void inorder() {
 		inorderTraversal(root);
 	}

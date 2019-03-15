@@ -20,18 +20,38 @@ public class ReverseLinkedListIterative {
 		System.out.println("null");
 	}
 	
-	static Node reverseList(Node head){
+	static Node reverseListIterative(Node head){
+		if(head == null || head.link == null) {
+			return head;
+		}
+		
 		Node prev = null;
 		Node current = head;
 		Node next = null;
-		while(current != null){
+		
+		while(current != null) {
 			next = current.link;
-			current.link= prev;
+			current.link = current;
 			prev = current;
-			current= next;
+			current = next;
 		}
-		head= prev;
+		prev = head;
+		
 		return head;
+	}
+	
+	static Node reverseListRecursive(Node node){
+		if (node == null) {
+			return null;
+		}else if(node.link == null) {
+			return node;
+		}else {
+			Node nextNode = node.link;
+			node.link = null;
+			Node rest = reverseListRecursive(nextNode);
+			nextNode.link = node;
+			return rest;
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -42,7 +62,7 @@ public class ReverseLinkedListIterative {
 		
 		printList(head);
 		
-		Node headFinal=reverseList(head);
+		Node headFinal=reverseListRecursive(head);
 		
 		printList(headFinal);
 		

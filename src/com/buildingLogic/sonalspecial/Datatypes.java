@@ -22,3 +22,28 @@ public class Datatypes {
 	}
 
 }
+/* Data Types
+ *  1. Primitive
+ *  2. References
+ *  
+ *  Primitive : byte -> short -> int -> long -> float -> double
+ *  			char , boolean
+ *  
+ *  // study about char later
+ *   Type conversion:
+ *   ----------------
+ *   Implicit:
+ *   Explicit:
+ *   
+ *   Operators: BODMAS
+ *    (),
+ *    ^ , 
+ *    /, * , 
+ *    +, -
+ *    
+ *    4 × (3 + 2) =  20
+ *    3^2 + 5 = 14
+ *    4 * 5 / 2 + 7 = 17
+ *    4 * 5 / 2  ^ 3 = 20/8
+	  4 * (6 - 7) + 3^(1+2) = 23
+ * */
