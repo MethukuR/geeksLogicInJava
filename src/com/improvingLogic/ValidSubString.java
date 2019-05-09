@@ -22,7 +22,7 @@ Explanation:  ()(()))
 A Simple Approach is to find all the substrings of given string. For every string, check if it is 
 a valid string or not. If valid and length is more than maximum length so far, then update maximum
 length. We can check whether a substring is valid or not in linear time using a stack . Time 
-complexity of this solution is O(n2).
+complexity of this solution is O(n^2).
 
 An Efficient Solution can solve this problem in O(n) time. The idea is to store indexes of previous
 starting brackets in a stack. The first element of stack is a special element that provides index

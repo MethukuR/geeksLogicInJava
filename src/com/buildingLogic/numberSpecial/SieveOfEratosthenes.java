@@ -3,16 +3,16 @@ package com.buildingLogic.numberSpecial;
  *  link: http://www.geeksforgeeks.org/sieve-of-eratosthenes/
  * 	Given a number n, print all primes smaller than or equal to n. It is also given that n is a small 
  * 	number.
-	For example, if n is 10, the output should be “2, 3, 5, 7”. If n is 20, the output should be 
-	“2, 3, 5, 7, 11, 13, 17, 19”.
+	For example, if n is 10, the output should be ï¿½2, 3, 5, 7ï¿½. If n is 20, the output should be 
+	ï¿½2, 3, 5, 7, 11, 13, 17, 19ï¿½.
 	
 	The sieve of Eratosthenes is one of the most efficient ways to find all primes smaller than n when n is 
 	smaller than 10 million or so
 	
 	Following is the algorithm to find all the prime numbers less than or equal to a given integer n by 
-	Eratosthenes’ method:
+	Eratosthenesï¿½ method:
 
-	1.Create a list of consecutive integers from 2 to n: (2, 3, 4, …, n).
+	1.Create a list of consecutive integers from 2 to n: (2, 3, 4, ï¿½, n).
 	2.Initially, let p equal 2, the first prime number.
 	3.Starting from p, count up in increments of p and mark each of these numbers greater than p itself 
 	in the list. These numbers will be 2p, 3p, 4p, etc.; note that some of them may have already been 
@@ -54,7 +54,7 @@ public class SieveOfEratosthenes {
     // finally be false if i is Not a prime, else true.
     boolean prime[] = new boolean[n+1];
     
-    for(int i=0;i<n;i++)
+    for(int i=0;i<=n;i++)
         prime[i] = true;
      
     for(int p = 2; p*p <=n; p++){
@@ -76,7 +76,7 @@ public class SieveOfEratosthenes {
 // Driver Program to test above function
 public static void main(String args[])
 {
-    int n = 30;
+    int n = 5;
     System.out.print("Following are the prime numbers ");
     System.out.println("smaller than or equal to " + n);
     SieveOfEratosthenes g = new SieveOfEratosthenes();

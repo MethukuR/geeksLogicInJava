@@ -38,7 +38,6 @@ public class MergeKSortedArrays {
     }
     return mergedArrays;
   }
-
 }
 
 class QueueNode implements Comparable<QueueNode>{

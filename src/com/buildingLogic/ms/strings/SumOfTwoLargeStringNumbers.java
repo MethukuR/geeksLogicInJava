@@ -33,8 +33,8 @@ public class SumOfTwoLargeStringNumbers {
 
     while(i < s1.length() || j < s2.length()) {
       sum = carry + ((i < s1.length()) ? (int)s1.charAt(i) - '0' : 0) + ((j < s2.length()) ? (int)s2.charAt(j) - '0' : 0);
-      sum = sum%10;
       carry = sum/10;
+      sum = sum%10;
       resultant += sum;
       ++i;
       ++j;

@@ -6,60 +6,19 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Queue;
 
-class TNode{
-	private int data;
-	private TNode left;
-	private TNode right;
-	private TNode parent;
-	public TNode(int data) {
-		this.data = data;
-		this.left = null;
-		this.right = null;
-		this.parent = null;
-	}
-	public int getData() {
-		return data;
-	}
-	public void setData(int data) {
-		this.data = data;
-	}
-	public TNode getLeft() {
-		return left;
-	}
-	public void setLeft(TNode left) {
-		this.left = left;
-	}
-	public TNode getRight() {
-		return right;
-	}
-	public void setRight(TNode right) {
-		this.right = right;
-	}
-	public TNode getParent() {
-		return parent;
-	}
-	public void setParent(TNode parent) {
-		this.parent = parent;
-	}
-	@Override
-	public String toString() {
-		return "TNode [data=" + data + ", left=" + left + ", right=" + right
-				+ ", parent=" + parent + "]";
-	}
-}
+
 public class BSTOperations {
 	TNode root = null;
 	HashMap<Integer,List<Integer>> mapVerticalDistance =null;
 	
-	private void insert(int data){
+	public void insert(int data){
 		root=insertData(root,data);
 	}
 	
 	//recursive approach
-	private TNode insertData(TNode root, int data){
+	public TNode insertData(TNode root, int data){
 		if(root == null){
 			root= new TNode(data);
 		}else{
@@ -175,9 +134,9 @@ public class BSTOperations {
 		
 		mapVerticalDistance= new HashMap<Integer,List<Integer>>();
 		verticalorderTraversal(root,0);
-		Iterator<Entry<Integer, List<Integer>>> it = mapVerticalDistance.entrySet().iterator();
+		Iterator<Map.Entry<Integer, List<Integer>>> it = mapVerticalDistance.entrySet().iterator();
 	    while (it.hasNext()) {
-	        Map.Entry pair = (Map.Entry)it.next();
+	        Map.Entry<Integer, List<Integer>> pair = it.next();
 	        System.out.println(pair.getKey() + " = " + pair.getValue());
 	        it.remove(); // avoids a ConcurrentModificationException
 	    }

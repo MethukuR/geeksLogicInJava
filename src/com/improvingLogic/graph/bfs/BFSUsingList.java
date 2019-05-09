@@ -43,6 +43,7 @@ public class BFSUsingList {
 	}
 	
 	public static List<List<Integer>> bfsTree(Node root){
+    return null;/*
 		if(root == null) {
 			return null;
 		}
@@ -73,7 +74,7 @@ public class BFSUsingList {
 		}
 		return nodesAfterBfs;
 		
-	}
+	*/}
 
 	public static void main(String arg[]) {
 

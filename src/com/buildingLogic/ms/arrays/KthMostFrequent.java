@@ -41,12 +41,12 @@ public class KthMostFrequent {
       }
     }
 
-    List<Map.Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(hm.entrySet());
+    List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>(hm.entrySet());
 
     Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
 
       @Override
-      public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
+      public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
         return o1.getValue().compareTo(o2.getValue());
       }
     });

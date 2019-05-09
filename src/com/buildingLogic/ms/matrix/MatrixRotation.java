@@ -63,19 +63,19 @@ public class MatrixRotation {
     while (level < noOfLevels) {
 
       for (int i = level; i < last; ++i) {
-        
+
         int temp = inputMatrix[level][i];
         inputMatrix[level][i] = inputMatrix[i][last];
         inputMatrix[i][last] = temp;
-        
+
         temp = inputMatrix[level][i];
-        inputMatrix[level][i] = inputMatrix[last][last - i +level];
-        inputMatrix[last][last - i +level] = temp;
-        
+        inputMatrix[level][i] = inputMatrix[last][last - i + level];
+        inputMatrix[last][last - i + level] = temp;
+
         temp = inputMatrix[level][i];
-        inputMatrix[level][i] = inputMatrix[last - i +level][level];
-        inputMatrix[last - i +level][level] = temp;
-        
+        inputMatrix[level][i] = inputMatrix[last - i + level][level];
+        inputMatrix[last - i + level][level] = temp;
+
       }
       ++level;
       --last;
